@@ -25,7 +25,7 @@ const countries = (countries) => {
 } */
 
 
-// Methord 2: New Methord
+/* // Methord 2: New Methord one
 const loadData = () => {
     fetch('https://restcountries.com/v3.1/all')
         .then(res => res.json())
@@ -51,4 +51,33 @@ const createHTML = country => {
     </div>
     `
 }
+loadData() */
+
+
+
+// Methord 3: new and smart pro max methord
+const loadData = () => {
+    fetch('https://restcountries.com/v3.1/all')
+        .then(res => res.json())
+        .then(data => displayCountries(data))
+}
 loadData()
+
+const displayCountries = countries => {
+    console.log(countries)
+    const countriesHTML = countries.map(country => createHTML(country))
+    const earth = document.getElementById('earth')
+    earth.innerHTML = countriesHTML.join(' ')
+}
+
+// using destructuring parameter
+const createHTML = ({ flags, region, population, name }) => {
+    return `
+   <div>
+        <img src="${flags.png}">
+        <h1>Name: ${name.common}</h1>
+        <p>Region: ${region}</p>
+        <p>Population: ${population}</p>
+   </div>
+    `
+}
