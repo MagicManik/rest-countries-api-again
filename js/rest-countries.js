@@ -55,7 +55,40 @@ loadData() */
 
 
 
-// Methord 3: new and smart pro max methord
+/* // Methord 3: new and methord
+const loadData = () => {
+    fetch('https://restcountries.com/v3.1/all')
+        .then(res => res.json())
+        .then(data => displayCountries(data))
+}
+loadData()
+
+const displayCountries = countries => {
+    console.log(countries)
+    const countriesHTML = countries.map(country => createHTML(country))
+    const earth = document.getElementById('earth')
+    earth.innerHTML = countriesHTML.join(' ')
+}
+
+// using destructuring parameter
+const createHTML = country => {
+    const { flags, name, region, population } = country;
+    return `
+   <div>
+        <img src="${flags.png}">
+        <h1>Name: ${name.common}</h1>
+        <p>Region: ${region}</p>
+        <p>Population: ${population}</p>
+   </div>
+    `
+} */
+
+
+
+
+
+
+// Methord 4: new and smart pro max methord
 const loadData = () => {
     fetch('https://restcountries.com/v3.1/all')
         .then(res => res.json())
